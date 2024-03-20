@@ -41,7 +41,7 @@ public class FormItemController {
 
     @PostMapping("/add")
     public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
-        log.info("item.open={}", item.getOpen());
+        log.info("item.open={}", item.getOpen());// 지금까지 내추론에 의하면 알규먼트 리졸버에서 히든필드 인식해서 펄스로 갈아껴주는듯 ㅇㅇ
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
