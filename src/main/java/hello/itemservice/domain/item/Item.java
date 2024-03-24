@@ -24,4 +24,10 @@ public class Item {
         this.price = price;
         this.quantity = quantity;
     }
+
+    public static void main(String[] args) {
+        Item test = new Item();
+
+
+    }
 }
