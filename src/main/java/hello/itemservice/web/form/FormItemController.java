@@ -1,5 +1,6 @@
 package hello.itemservice.web.form;
 
+import hello.itemservice.domain.item.DeliveryCode;
 import hello.itemservice.domain.item.Item;
 import hello.itemservice.domain.item.ItemRepository;
 import hello.itemservice.domain.item.ItemType;
@@ -36,6 +37,12 @@ public class FormItemController {
         return ItemType.values();
     }
 
+    @ModelAttribute("deliveryCodes")
+    public List<DeliveryCode> deliveryCodes() {
+
+    }
+
+
 
     @GetMapping
     public String items(Model model) {
@@ -62,6 +69,7 @@ public class FormItemController {
         
         log.info("item.open={}", item.getOpen());// 지금까지 내추론에 의하면 알규먼트 리졸버에서 히든필드 인식해서 펄스로 갈아껴주는듯 ㅇㅇ
         log.info("item.regions={}", item.getRegions());
+        log.info("item.itemType={}", item.getItemType());
 
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
